@@ -1,0 +1,24 @@
+# .github/workflows/test-visual-regression.yml
+name: Test VR Tool
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      # Test na swoim Nuxt projekcie
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Test Visual Regression Action
+        uses: ./ # Użyj local action
+        with:
+          build-command: "npm run build"
+          build-dir: "dist"

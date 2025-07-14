@@ -1,0 +1,26 @@
+name: "Visual Regression Testing"
+description: "Smart visual regression testing for Vue/React/Angular apps"
+author: "Kacper Biedka"
+
+inputs:
+  build-command:
+    description: "Command to build your app"
+    required: false
+    default: "npm run build"
+
+  build-dir:
+    description: "Build output directory"
+    required: false
+    default: "dist"
+
+  api-key:
+    description: "API key for baseline storage"
+    required: false
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: "eye"
+  color: "blue"
