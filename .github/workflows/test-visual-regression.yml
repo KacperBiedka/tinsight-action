@@ -21,4 +21,4 @@ jobs:
         uses: ./ # Użyj local action
         with:
           build-command: "npm run build"
-          build-dir: "dist"
+          build-dir: ".nuxt/dist"
